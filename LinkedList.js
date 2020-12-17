@@ -12,7 +12,7 @@ class Node {
       this.length = 0;
     }
   
-    printList(){
+    printList(){                                  //<-- this is a helper function, it prints current list
       let currentList="";
       let currentNode = this.head;
       while(currentNode){
@@ -23,7 +23,7 @@ class Node {
       console.log('current list: ' + currentList);
     }
   
-    append(value){
+    append(value){                            //<--add to the end of the list;
       const newNode = new Node(value);
       if(!this.head){
         this.head = newNode;
@@ -37,8 +37,8 @@ class Node {
         return this;
       }
     }
-  
-    prepend(value) {
+     
+    prepend(value) {                          //<--add to the start of the list;
       const newNode = new Node(value);
       newNode.next = this.head;
       this.head = newNode;
@@ -46,7 +46,7 @@ class Node {
       return this;
     }
   
-    insert(index,value){
+    insert(index,value){                    //<-- insert at the given index;
       if(index>=this.length) {
         this.append(value);
         return this;
@@ -68,7 +68,7 @@ class Node {
       }
     }
   
-    popEnd(){
+    popEnd(){                                        // <--- delete  the last Node;
       let currentNode = this.head;
       while(currentNode.next.next!==null){
         currentNode = currentNode.next;
@@ -79,14 +79,14 @@ class Node {
       return this;
     }
   
-    shift() {
+    shift() {                                     //<--- delete the first Node;
       let currentNode = this.head.next;
       this.head = currentNode
       this.length--;
       return this;
     }
-  
-    remove(index){
+   
+    remove(index){                               //<--- delete the Node at given Index;
       if(index>this.length){
         console.log('out of range');
         return
@@ -110,7 +110,7 @@ class Node {
       }   
     }
   
-    lookUp(index){
+    lookUp(index){                                //<=== check the Node at given index;
       if(index>this.length){
         console.log('out of range')
         return;
